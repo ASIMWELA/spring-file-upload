@@ -1,0 +1,31 @@
+spring:
+  jpa:
+  datasource:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
+        format_sql: true
+    hibernate:
+      ddl-auto: create-drop
+    url: jdbc:postgresql://postgredb:5433/file_upload_db
+    password: auga.
+    username: auga
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 30MB
+      max-file-size: 50MB
+  sql:
+    init:
+      mode: always
+file:
+  storage:
+    location: src/main/resources/uploads
+
+server:
+  port: 8080
+

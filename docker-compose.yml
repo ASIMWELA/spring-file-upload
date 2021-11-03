@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    container_name: file-upload
+    image: file-upload:1.1
+    ports:
+    - 8080:8080
+    build: ./
+    depends_on:
+      - postgredb
+  postgredb:
+    image: postgres
+    ports:
+    - 5433:5432
+    environment:
+      - POSTGRES_PASSWORD=auga.
+      - POSTGRES_USER=auga
+      - POSTGRES_DB=file_upload_db
